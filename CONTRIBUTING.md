@@ -427,3 +427,5 @@ Closes #123
 有问题就提 Issue，有修改就提 PR。
 
 欢迎大家一起维护这个项目。
+
+*Beijing Institute of Fashion Technology · Computer Knowledge Learning Society*
