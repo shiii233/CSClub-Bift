@@ -1,0 +1,81 @@
+# ========== Node 后端 / 包管理器 ==========
+node_modules/
+package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# 环境变量【最重要，数据库密码、阿里云密钥放这里】
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env.*.local
+
+# 缓存
+.npm
+.eslintcache
+
+# ========== 前端打包产物 Vue/React ==========
+dist/
+build/
+out/
+.output
+.next
+.nuxt
+.umi
+
+# ========== 日志、临时文件 ==========
+logs/
+*.log
+tmp/
+temp/
+*.tmp
+
+# ========== IDE 编辑器文件 ==========
+# VSCode
+.vscode/
+*.code-workspace
+# JetBrains WebStorm/IDEA
+.idea/
+*.iml
+# Sublime
+*.sublime-project
+*.sublime-workspace
+
+# ========== 操作系统垃圾文件 ==========
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+# Windows
+Thumbs.db
+Desktop.ini
+
+# ========== 数据库相关（后端重点） ==========
+*.db
+*.sqlite
+*.sqlite3
+*.sql
+dump/
+db-backup/
+
+# ========== 证书、私钥、备份文件 ==========
+*.pem
+*.key
+*.crt
+*.cert
+*.bak
+*.backup
+*.old
+
+# ========== 测试相关 ==========
+coverage/
+.nyc_output
+
+# ========== 其他杂项 ==========
+*.swp
+*.swo
+
