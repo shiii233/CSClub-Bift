@@ -1,0 +1,26 @@
+{
+  "name": "computer-club-forum",
+  "version": "2.0.0",
+  "private": true,
+  "description": "计算机社交流论坛：独立用户身份、三个板块发帖、楼层回复、指令式操作。部署在阿里云服务器上，数据存 MySQL。",
+  "type": "module",
+  "main": "server.mjs",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "clear": "node server.mjs --clear",
+    "prune": "node server.mjs --prune",
+    "selftest": "node self-test.mjs",
+    "status": "node ops.mjs status",
+    "verify": "node ops.mjs verify",
+    "migrate": "node ops.mjs migrate",
+    "backup": "node ops.mjs backup",
+    "schema": "node ops.mjs schema"
+  },
+  "dependencies": {
+    "mysql2": "^3.24.4"
+  },
+  "license": "ISC"
+}
