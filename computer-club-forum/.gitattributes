@@ -1,0 +1,24 @@
+# 默认按文本处理并统一为 LF，避免不同系统提交时整文件 diff
+* text=auto eol=lf
+
+# Windows 脚本保持 CRLF（.bat/.cmd 由 cmd.exe 执行，CRLF 最稳）
+# 注意：.ps1 里含中文提示，文件本身带 UTF-8 BOM，
+#       不要用 working-tree-encoding 转换，否则 BOM 可能被丢掉，
+#       旧版 Windows PowerShell 5.1 会按 GBK 解码而报语法错。
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+*.ps1  text eol=crlf
+
+# 二进制文件不要做换行转换
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.zip  binary
+*.gz   binary
+*.db   binary
+
+# 让 GitHub 语言统计更准确
+*.mjs  linguist-language=JavaScript
+*.js   linguist-language=JavaScript

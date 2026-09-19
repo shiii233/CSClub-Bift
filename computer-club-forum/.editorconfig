@@ -1,0 +1,20 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+# Windows 脚本用 CRLF；PowerShell 脚本必须保存为「带 BOM 的 UTF-8」，
+# 否则在代码页 936 的 Windows 上，PowerShell 5.1 会把中文提示读成乱码并报语法错。
+[*.{bat,cmd,ps1}]
+end_of_line = crlf
+
+[*.ps1]
+charset = utf-8-bom
+
+[*.md]
+trim_trailing_whitespace = false

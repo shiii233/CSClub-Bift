@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<title>计算机社交流论坛 · 仅限内网 200 人</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">群</span>
+      <div>
+        <h1>计算机社交流论坛</h1>
+        <p class="sub">计算机社内部交流 · 仅限内网/VPN <b>200</b> 人 · 不对外公开 · 禁止广告与外部引流</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <div class="pill" id="memberPill">成员 —/200</div>
+      <div class="pill" id="clockPill">—</div>
+      <div class="me" id="meBox">未登录</div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="side-title">板块</div>
+      <nav id="boardNav" class="board-nav"></nav>
+
+      <div class="side-title">我的身份</div>
+      <div class="me-card" id="meCard"></div>
+
+      <div class="side-title">成员（<span id="memberCount">0</span>/200）</div>
+      <div class="member-list" id="memberList"></div>
+
+      <div class="side-note">
+        本页面部署在阿里云服务器上，只对校园网/内网/VPN 来源开放，公网地址一律拒绝；
+        数据存放在 MySQL 中，所有资料条目为模拟条目，不产生真实文件。
+      </div>
+    </aside>
+
+    <main class="main">
+      <section class="toolbar">
+        <div class="search">
+          <input id="searchInput" type="search" placeholder="搜索内容 / 用户名…" />
+          <button id="searchBtn" class="btn ghost">搜索</button>
+        </div>
+        <div class="viewtabs" id="viewTabs">
+          <button data-view="list" class="tab active">帖子列表</button>
+          <button data-view="console" class="tab">指令控制台</button>
+        </div>
+        <button id="composeBtn" class="btn primary">＋ 发帖</button>
+      </section>
+
+      <section id="content" class="content"></section>
+
+      <section class="console-dock" id="consoleDock">
+        <div class="dock-head">
+          <b>指令控制台</b>
+          <span class="hint">示例：注册：用户名小明 ／ 发帖：板块=学习资料区，内容=高数笔记【图片：第三章课件】 ／ 查看全部帖子 ／ 查看板块【闲聊交流区】 ／ 查看帖子ID:1 的全部回复 ／ 回复帖子ID:1，内容=收到</span>
+          <button id="helpBtn" class="btn ghost small">指令说明</button>
+        </div>
+        <div class="dock-body">
+          <pre id="consoleOut" class="console-out">点击右侧「指令说明」查看全部指令。输入任意指令后按 Enter 执行。</pre>
+          <div class="dock-input">
+            <textarea id="cmdInput" rows="2" placeholder="在此输入指令，Enter 执行（Shift+Enter 换行）"></textarea>
+            <button id="cmdRun" class="btn primary">执行</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <div class="modal-head">
+        <b id="modalTitle">发帖</b>
+        <button id="modalClose" class="btn ghost small">关闭</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+  <div id="toast" class="toast hidden"></div>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>
