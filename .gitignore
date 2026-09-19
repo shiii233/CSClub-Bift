@@ -6,6 +6,9 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# 后端需要提交自己的锁文件，保证部署可复现（只对子项目放行）
+!computer-club-forum/package-lock.json
+
 # 环境变量【最重要，数据库密码、阿里云密钥放这里】
 .env
 .env.local
@@ -23,9 +26,9 @@ dist/
 build/
 out/
 .output
-.next
-.nuxt
-.umi
+.next/
+.nuxt/
+.umi/
 
 # ========== 日志、临时文件 ==========
 logs/
@@ -53,6 +56,7 @@ temp/
 # Windows
 Thumbs.db
 Desktop.ini
+$RECYCLE.BIN/
 
 # ========== 数据库相关（后端重点） ==========
 *.db
@@ -62,14 +66,26 @@ Desktop.ini
 dump/
 db-backup/
 
+# 不过 01-schema.sql 是建表脚本，必须进仓库
+!computer-club-forum/deploy/mysql/01-schema.sql
+
+# 数据库运行残留（journal / WAL / 迁移留档）
+*.db-journal
+*.db-shm
+*.db-wal
+*.migrated
+
 # ========== 证书、私钥、备份文件 ==========
 *.pem
 *.key
 *.crt
 *.cert
+*.pfx
+*.p12
 *.bak
 *.backup
 *.old
+certs/
 
 # ========== 测试相关 ==========
 coverage/
@@ -79,3 +95,17 @@ coverage/
 *.swp
 *.swo
 
+# ========== 计算机社交流论坛（computer-club-forum/） ==========
+# 服务器上的运行配置，含 MySQL 口令，绝不能提交
+forum.env.cmd
+forum.mysql.env.cmd
+*.env.cmd
+!computer-club-forum/deploy/mysql/forum-mysql.env.example.cmd
+
+# 本机运行残留
+backups/
+.selftest/
+tmp-sqltest/
+tmp-mysql/
+deploy/*.zip
+*.tar.gz
